@@ -13,9 +13,8 @@ def count3Pairs(lines):
         l = l.rstrip()
         print(l)
         for i in range(len(l)):
-            freq[row][ord(l[i]) - 1] = freq[row][ord(l[i]) - 1]+1
+            freq[row][ord(l[i]) - 1] = freq[row][ord(l[i]) - 1] + 1
         row += 1
-
 
     # Find the count of valid pairs
     for i in range(122):
@@ -28,18 +27,14 @@ def count3Pairs(lines):
     return count
 
 
+# main
 f = open("day-3-input", "r")
 ans = 0
-
 with f as infile:
     while True:
         lines = list(islice(infile, 3))
-        if not lines:
-            break
-        ans += count3Pairs(lines)
-
+        if lines:
+            ans += count3Pairs(lines)
+            continue
+        break
 print("ans", ans)
-
-
-
-
